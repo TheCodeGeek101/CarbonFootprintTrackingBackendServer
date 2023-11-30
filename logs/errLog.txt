@@ -1,0 +1,15 @@
+20230607	00:36:04	a8c9a456-ae44-42fb-87ff-6d5ac8e122b3	Error: Not allowed by CORS
+20230607	00:37:08	f53d34c4-58fe-4194-ad59-6d6bf8d9b2b0	Error: Not allowed by CORS
+20230607	00:42:41	b474a097-5a70-4d76-afec-2b4124f4d56a	Error: Not allowed by CORS
+20231129	21:37:00	9a04718a-2153-4997-a748-45f0829d8643	SyntaxError: Unexpected string in JSON at position 63
+20231129	21:37:53	8ba1a1a6-fd78-41b6-a63b-d73f876f9631	SyntaxError: Unexpected string in JSON at position 63
+20231129	21:38:08	7a712346-4f54-4f26-9a30-3e7deda50541	SyntaxError: Unexpected string in JSON at position 63
+20231129	21:43:20	2e1134ee-4cca-44bf-b8de-83a44946a697	SyntaxError: Unexpected string in JSON at position 63
+20231129	21:49:48	395a2ad7-73e3-41c2-a47e-1a9eca74cee9	SyntaxError: Unexpected string in JSON at position 63
+20231129	21:51:40	311e0999-6eb2-430d-8251-940fd79d7b83	SyntaxError: Unexpected string in JSON at position 63
+20231129	21:58:22	df570c43-6013-4982-a5e3-35a6408136e6	SyntaxError: Unexpected token } in JSON at position 99
+20231129	22:00:28	db8ed138-9243-4c13-933c-998d5d293811	SyntaxError: Unexpected token } in JSON at position 97
+20231129	22:55:57	3c1ef6c5-67d6-46b1-a6f9-b747191a0edd	TypeError: Cannot read properties of null (reading '1')
+20231129	22:57:22	1b95721d-4fac-4d23-a24b-8698390b68b8	TypeError: Cannot read properties of null (reading '1')
+20231129	23:04:56	04dbd707-b6b9-42ad-affb-10446346e4fd	TypeError: Cannot read properties of null (reading '1')
+20231130	01:45:51	9e710214-bd29-4b33-aea8-9b47596d6dc4	SyntaxError: Unexpected token f in JSON at position 13
