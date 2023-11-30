@@ -15,6 +15,7 @@ const getCars = async (req, res) => {
                 year,
                 model,
                 brand,
+                price,
                 "image": image.asset->url,
                 _id
             }`
@@ -24,6 +25,7 @@ const getCars = async (req, res) => {
             brand: car.brand,
             model: car.model,
             year: car.year,
+            price: car.price,
             id: car._id,
             image: car.image,
         }));
@@ -50,6 +52,7 @@ const searchCars = async (req,res) => {
                 year,
                 model,
                 brand,
+                price,
                 "image": image.asset->url,
                 _id
                 }`,
@@ -61,6 +64,7 @@ const searchCars = async (req,res) => {
             brand: car.brand,
             model: car.model,
             year: car.year,
+            price:car.price,
             id: car._id,
             image: car.image,
         }));
