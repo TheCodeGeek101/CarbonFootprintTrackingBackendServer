@@ -11,26 +11,45 @@ const client = createClient({
 // define the getCars function to retrieve all cars
 const getCars = async (req, res) => {
     try {
+        
         // query the schema to retrieve the cars
         const data = await client.fetch(
             `*[_type == "car"]{
-                year,
-                model,
-                brand,
-                price,
-                "image": image.asset->url,
-                _id
+                    year,
+                    model,
+                    brand,
+                    price,
+                    gearbox,
+                    seat,
+                    motor,
+                    color,
+                    speed,
+                    topSpeed,
+                    "frontImage": frontImage.asset->url,
+                    "rearImage": rearImage.asset->url,
+                    "sideImage": sideImage.asset->url,
+                    "upperImage": upperImage.asset->url,
+                    _id
             }`
         );
 
         // map the cars in an array 
-        const carsList = data.map((car) => ({
+         const carsList = data.map((car) => ({
             brand: car.brand,
             model: car.model,
             year: car.year,
-            price: car.price,
+            price:car.price,
             id: car._id,
-            image: car.image,
+            frontImage: car.frontImage,
+            rearImage: car.rearImage,
+            sideImage: car.sideImage,
+            upperImage: car.upperImage,
+            gearbox: car.gearbox,
+            seat: car.seat,
+            motor: car.motor,
+            topSpeed: car.topSpeed,
+            color: car.color,
+            speed: car.speed
         }));
 
         //log them into the console 
@@ -63,7 +82,16 @@ const searchCars = async (req,res) => {
                     model,
                     brand,
                     price,
-                    "image": image.asset->url,
+                    gearbox,
+                    seat,
+                    motor,
+                    color,
+                    speed,
+                    topSpeed,
+                    "frontImage": frontImage.asset->url,
+                    "rearImage": rearImage.asset->url,
+                    "sideImage": sideImage.asset->url,
+                    "upperImage": upperImage.asset->url,
                     _id
                     }`,
                 {
@@ -78,7 +106,16 @@ const searchCars = async (req,res) => {
             year: car.year,
             price:car.price,
             id: car._id,
-            image: car.image,
+            frontupperImage: car.image,
+            rearImage: car.image,
+            sideImage: car.image,
+            upperImage: car.image,
+            gearbox: car.gearbox,
+            seat: car.seat,
+            motor: car.motor,
+            topSpeed: car.topSpeed,
+            color: car.color,
+            speed: car.speed
         }));
 
         // log the results in the console
