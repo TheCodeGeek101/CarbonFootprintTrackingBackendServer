@@ -8,8 +8,10 @@ const client = createClient({
   useCdn: false, // Set to true if you want to enable the Content Delivery Network (CDN)
 });
 
+// define the getCars function to retrieve all cars
 const getCars = async (req, res) => {
     try {
+        // query the schema to retrieve the cars
         const data = await client.fetch(
             `*[_type == "car"]{
                 year,
@@ -21,6 +23,7 @@ const getCars = async (req, res) => {
             }`
         );
 
+        // map the cars in an array 
         const carsList = data.map((car) => ({
             brand: car.brand,
             model: car.model,
@@ -30,8 +33,10 @@ const getCars = async (req, res) => {
             image: car.image,
         }));
 
+        //log them into the console 
         console.log('Cars:', carsList);
 
+        // return a json response
         res.json({ cars: carsList });
         console.log('Success');
     } catch (err) {
@@ -40,26 +45,33 @@ const getCars = async (req, res) => {
     }
 };
 
+// define search cars function 
 const searchCars = async (req,res) => {
 
+// destructure brand from the request
  const { brand} = req.body;
-  if (!brand)
-    return res.status(400).json({ 'message': 'Please enter the brand of the car you want.' });
+   
+    // check if the brand is available in the request 
+  if (!brand) return res.status(400).json({ 'message': 'Please enter the brand of the car you want.' });
 
     try{
-    const data = await client.fetch(
-            `*[_type == "car" && brand == $brand]{
-                year,
-                model,
-                brand,
-                price,
-                "image": image.asset->url,
-                _id
-                }`,
-            {
-               brand: brand,
-            }
-        );
+
+        // query the cars based on the brand from the request
+        const data = await client.fetch(
+                `*[_type == "car" && brand == $brand]{
+                    year,
+                    model,
+                    brand,
+                    price,
+                    "image": image.asset->url,
+                    _id
+                    }`,
+                {
+                brand: brand,
+                }
+            );
+        
+        // map the results into an array
         const carsList = data.map((car) => ({
             brand: car.brand,
             model: car.model,
@@ -68,8 +80,11 @@ const searchCars = async (req,res) => {
             id: car._id,
             image: car.image,
         }));
+
+        // log the results in the console
         console.log('Cars:', carsList);
 
+        // return a json response
         res.json({ cars: carsList });
         console.log('Success');
         }
