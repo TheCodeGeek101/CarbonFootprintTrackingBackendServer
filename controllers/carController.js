@@ -93,5 +93,38 @@ const searchCars = async (req,res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+const getDealers = async (req, res) => {
+     try {
+        // query the schema to retrieve the dealers
+        const data = await client.fetch(
+            `*[_type == "dealers"]{
+                name,
+                offers,
+                "image": image.asset->url,
+                _id
+            }`
+        );
+
+        // map the results in an array 
+        const dealersList = data.map((dealer) => ({
+            name: dealer.name,
+            offers: dealer.offers,
+            id: dealer._id,
+            image: dealer.image,
+        }));
+
+        //log them into the console 
+        console.log('dealers :', dealersList);
+
+        // return a json response
+        res.json({ dealers: dealersList });
+        console.log('Success');
+    } catch (err) {
+        console.error('Error fetching dealers:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+}
  
-module.exports = { getCars, searchCars };
+module.exports = { getCars, searchCars, getDealers };

@@ -55,6 +55,7 @@ app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
 app.use('/book', require('./routes/book'));
 app.use('/cars', require('./routes/cars'));
+app.use('/dealers', require('./routes/dealers'));
 app.use('/cars/search', require('./routes/searchCars'));
 
 app.use(verifyJWT);
