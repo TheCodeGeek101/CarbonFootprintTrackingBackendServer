@@ -14,7 +14,8 @@ const dataset = 'production';
 const tokenWithWriteAccess = "skrxXnAjDiTsL7GoGPwfBdOuIf4IYOf14RUAn5Ug3B1416xNp10nz1lze0lbyybGhQzpFOxC6ie3rhGVeSCriKIAd80WttYVCcGoDr0bjJjGs03uBnaOtdWnCuXmjY7zF6tq99pNQgMOlmVo70T3eEYMNp481Qkhnmq4uf3REw9SDL4svAKA";
 
 const bookCar = async (req, res)  => {
-    try {
+   
+  try {
 
       // destructure the variables from the request
     const { car, customer, start_time, end_time } = req.body;
@@ -94,5 +95,35 @@ const bookCar = async (req, res)  => {
       return overlappingBookings.length === 0;
     }
 
+    const getReservations = async (req,res) => {
+        const {user_id} = req.body;
+        try{
+          const response = await client.fetch(`*[_type == "booking" && customer._ref == $user_id]`,
+          {user_id});
 
-module.exports = { bookCar };
+          // if(response.status == 200){
+
+                  // map the results in an array 
+              const reservations = response.map((reservation) => ({
+                 'start_time':reservation.start_time,
+                 'end_time':reservation.end_time,
+                 'customer':reservation.customer._ref,
+                 'car':reservation.car._ref,
+                 'id':reservation._id
+                  }));
+
+            // return a json response
+              res.status(200).json({ reservations: reservations });
+              console.log('Success');
+          // }
+          // else{
+          //   console.log(res.status);
+          //   res.status(400).json({ message: "Bad request!" });
+          // }
+        }catch(error){
+          console.error(error);
+        }
+    }
+
+
+module.exports = { bookCar, getReservations };

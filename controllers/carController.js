@@ -11,7 +11,7 @@ const client = createClient({
 // define the getCars function to retrieve all cars
 const getCars = async (req, res) => {
     try {
-        
+
         // query the schema to retrieve the cars
         const data = await client.fetch(
             `*[_type == "car"]{

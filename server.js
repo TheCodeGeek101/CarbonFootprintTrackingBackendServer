@@ -44,8 +44,6 @@ const authController = require('./controllers/authController');
 const carBookingController = require('./controllers/carBookingController');
 
 // Define your routes
-app.post('/login', authController.handleLogin);
-app.post('/book', carBookingController.bookCar);
 
 // routes
 app.use('/', require('./routes/root'));
@@ -57,6 +55,7 @@ app.use('/book', require('./routes/book'));
 app.use('/cars', require('./routes/cars'));
 app.use('/dealers', require('./routes/dealers'));
 app.use('/cars/search', require('./routes/searchCars'));
+app.use('/reservations', require('./routes/reservations'));
 
 app.use(verifyJWT);
 
