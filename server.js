@@ -12,6 +12,7 @@ const credentials = require('./middleware/credentials');
 const PORT = process.env.PORT || 3500;
 const multer = require('multer');
 const upload = multer();
+const farmerRoutes = require('./routes/farmerRoutes');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -39,11 +40,6 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use(upload.none());
 
-// Import your routes and controllers
-const authController = require('./controllers/authController');
-const carBookingController = require('./controllers/carBookingController');
-
-// Define your routes
 
 // routes
 app.use('/', require('./routes/root'));
@@ -51,11 +47,7 @@ app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
-app.use('/book', require('./routes/book'));
-app.use('/cars', require('./routes/cars'));
-app.use('/dealers', require('./routes/dealers'));
-app.use('/cars/search', require('./routes/searchCars'));
-app.use('/reservations', require('./routes/reservations'));
+app.use('/farmer', farmerRoutes);
 
 app.use(verifyJWT);
 

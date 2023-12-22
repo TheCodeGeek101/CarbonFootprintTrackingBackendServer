@@ -13,3 +13,7 @@
 20231129	22:57:22	1b95721d-4fac-4d23-a24b-8698390b68b8	TypeError: Cannot read properties of null (reading '1')
 20231129	23:04:56	04dbd707-b6b9-42ad-affb-10446346e4fd	TypeError: Cannot read properties of null (reading '1')
 20231130	01:45:51	9e710214-bd29-4b33-aea8-9b47596d6dc4	SyntaxError: Unexpected token f in JSON at position 13
+20231210	20:07:05	98c17433-4608-44d8-bec7-4084ee475a63	SyntaxError: Unexpected token } in JSON at position 43
+20231210	20:15:20	f90a4d94-3d48-427f-b1c1-7c33a3715342	SyntaxError: Unexpected token } in JSON at position 43
+20231210	20:16:54	d865d2ee-de09-43ee-895e-e8fd870bdf0e	SyntaxError: Unexpected token } in JSON at position 43
+20231210	20:26:43	02a44fbf-39d5-4d8b-af9a-70008678b8b5	SyntaxError: Unexpected token } in JSON at position 43
