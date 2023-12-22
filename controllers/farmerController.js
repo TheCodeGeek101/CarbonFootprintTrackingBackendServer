@@ -152,7 +152,7 @@ const transferOwnership = async (req, res) => {
   }
 };
 
-// Withdraw funds from the contract
+// Withdraw funds from the smart contract
 const withdrawFunds = async (req, res) => {
   try {
     const accounts = await web3.eth.getAccounts();
