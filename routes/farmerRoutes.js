@@ -1,6 +1,6 @@
 // routes/farmerRoutes.js
 const express = require('express');
-const farmerController = require('./farmerController');
+const farmerController = require('../controllers/farmerController');
 
 const router = express.Router();
 

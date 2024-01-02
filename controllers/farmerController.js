@@ -1,11 +1,11 @@
-const Web3 = require('web3');
+import Web3 from 'web3';
 
+console.log("The web3 is an"+ typeof Web3);
 const web3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545'); // BSC testnet node URL
 
-const contractAddress = '0xYourContractAddress'; // Replace with your deployed contract address on BSC testnet
-const contractABI = [
-  // Your contract ABI here
-];
+const contractAddress = '0x48e01c47f2682ee3ad7803edad9a302cdd61408d'; // deployed contract address on BSC testnet
+
+const contractABI = require('../utils/contract');
 
 const contract = new web3.eth.Contract(contractABI, contractAddress);
 
@@ -38,7 +38,8 @@ const getFarmerInfo = async (req, res) => {
       location: result[1],
       totalCarbonReduction: result[2],
     });
-  } catch (error) {
+  } 
+  catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
